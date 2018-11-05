@@ -8,10 +8,12 @@ import 'element-ui/lib/theme-chalk/index.css'
 import '@/assets/css/index.css'
 import router from './router'
 import httpTool from '@/plugins/http.js'
+import myBread from '@/components/mybread.vue'
 
 Vue.use(httpTool)
 Vue.use(ElementUI)
 
+Vue.component(myBread.name,myBread)
 Vue.filter('formDate',function(v){
  return moment(v).format('YYYY-MM-DD')
 })

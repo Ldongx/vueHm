@@ -1,11 +1,7 @@
 <template>
 <el-card class="box-card">
     <!-- 面包屑 -->
-    <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item>用户管理</el-breadcrumb-item>
-        <el-breadcrumb-item>用户列表</el-breadcrumb-item>
-    </el-breadcrumb>
+    <my-bread level1="用户管理" level2="用户列表"></my-bread>
 
     <!-- 搜索框 -->
     <el-row class="searchArea">
@@ -161,8 +157,6 @@ export default {
     // 加载视图
     async loadTableData() {
       this.loading = true;
-      const AUTH_TOKEN = sessionStorage.getItem("token");
-      this.$http.defaults.headers.common["Authorization"] = AUTH_TOKEN;
       const res = await this.$http.get(
         `users?pagenum=${this.pagenum}&pagesize=${this.pagesize}&query=${
           this.searchVal
